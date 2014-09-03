@@ -11,5 +11,8 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.executables << "sinoma"
   s.add_runtime_dependency 'ruby-notify-my-android', '~> 0.4', '>= 0.4.3'
+  s.add_development_dependency 'rspec-expectations', '~>3.0', '>= 3.0.4'
+  s.add_development_dependency 'rspec-mocks', '~>3.0', '>= 3.0.4'
+  s.add_development_dependency 'rspec', '~>3.0', '>= 3.0.0'
 end
 
