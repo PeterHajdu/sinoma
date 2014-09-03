@@ -6,8 +6,10 @@ Gem::Specification.new do |s|
   s.description = "Sinoma forwards notifications from a named pipe to your android device through nma."
   s.authors     = ["Peter Ferenc Hajdu"]
   s.email       = 'peter.ferenc.hajdu@gmail.com'
-  s.files       = ["lib/sinoma.rb"]
+  s.files       = ["lib/sinoma.rb", "bin/sinoma"]
   s.homepage    = 'http://github.com/PeterHajdu/sinoma'
-  s.license       = 'MIT'
+  s.license     = 'MIT'
+  s.executables << "sinoma"
+  s.add_runtime_dependency 'ruby-notify-my-android', '~> 0.4', '>= 0.4.3'
 end
 
