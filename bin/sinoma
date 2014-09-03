@@ -1,4 +1,31 @@
 #!/usr/bin/env ruby
 
-puts "under development"
+require 'sinoma'
+require 'optparse'
+
+options = {}
+option_parser = OptionParser.new do | opts |
+
+  opts.banner = "Usage: sinoma -k <apikey> [options] <path to named pipe>"
+
+  opts.on( "-k", "--apikey KEY", String, "nma apikey" ) do | key |
+    options[ :apikey ] = key
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+
+option_parser.parse!
+
+if ( options[ :apikey ].nil? or ARGV.empty? )
+  puts option_parser
+  exit
+end
+
+file_name = ARGV[ 0 ]
+notification_source = File.open( file_name, "r" )
+Sinoma.new( notification_source, options[ :apikey ] ).start
 
